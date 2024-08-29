@@ -1,0 +1,31 @@
+
+add:     file format elf64-x86-64
+
+Contents of section .text:
+ 0000 4883c0f6 00c301c3 6601c349 83c00a4d  H.......f..I...M
+ 0010 01c84901 c04c01c0 4d01084d 01480a4d  ..I..L..M..M.H.M
+ 0020 010c804d 014c800a 4b014488 0a4b8344  ...M.L..K.D..K.D
+ 0030 880a0b49 8344800a 0b498304 800b4d03  ...I.D...I....M.
+ 0040 01498307 0a                          .I...           
+
+Disassembly of section .text:
+
+0000000000000000 <.text>:
+   0:	48 83 c0 f6          	add    $0xfffffffffffffff6,%rax
+   4:	00 c3                	add    %al,%bl
+   6:	01 c3                	add    %eax,%ebx
+   8:	66 01 c3             	add    %ax,%bx
+   b:	49 83 c0 0a          	add    $0xa,%r8
+   f:	4d 01 c8             	add    %r9,%r8
+  12:	49 01 c0             	add    %rax,%r8
+  15:	4c 01 c0             	add    %r8,%rax
+  18:	4d 01 08             	add    %r9,(%r8)
+  1b:	4d 01 48 0a          	add    %r9,0xa(%r8)
+  1f:	4d 01 0c 80          	add    %r9,(%r8,%rax,4)
+  23:	4d 01 4c 80 0a       	add    %r9,0xa(%r8,%rax,4)
+  28:	4b 01 44 88 0a       	add    %rax,0xa(%r8,%r9,4)
+  2d:	4b 83 44 88 0a 0b    	addq   $0xb,0xa(%r8,%r9,4)
+  33:	49 83 44 80 0a 0b    	addq   $0xb,0xa(%r8,%rax,4)
+  39:	49 83 04 80 0b       	addq   $0xb,(%r8,%rax,4)
+  3e:	4d 03 01             	add    (%r9),%r8
+  41:	49 83 07 0a          	addq   $0xa,(%r15)
